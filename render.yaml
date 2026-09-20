@@ -1,0 +1,22 @@
+# Render Blueprint — 她周期 FastAPI 后端
+# 使用：Render Dashboard → New + → Blueprint → 选择本仓库 → Apply
+# DEEPSEEK_API_KEY 不会进入 Git（sync: false，需在 Render 控制台手动填入）
+services:
+  - type: web
+    name: hercycle-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.6"
+      - key: ENABLE_MOCK
+        value: "false"
+      # 部署前端拿到实际 Vercel 域名后，回填到这里（多个用英文逗号分隔）
+      - key: ALLOWED_ORIGINS
+        value: "https://hercycle.vercel.app"
+      - key: DEEPSEEK_API_KEY
+        sync: false

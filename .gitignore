@@ -1,0 +1,21 @@
+node_modules
+dist
+.npm-cache
+.vscode
+.trae
+*.log
+.DS_Store
+Thumbs.db
+
+# 环境变量（保留 .env.example 可提交）
+.env
+.env.local
+.env.*.local
+
+# 虚拟环境（双保险，backend/.gitignore 亦覆盖）
+.venv
+venv
+
+# Python
+__pycache__
+*.py[cod]

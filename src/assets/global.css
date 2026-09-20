@@ -1,0 +1,78 @@
+:root {
+  --hc-bg: #fff7f9;
+  --hc-card: #ffffff;
+  --hc-primary: #e55d8c;
+  --hc-primary-soft: #f8a5b8;
+  --hc-text-main: #2b2233;
+  --hc-text-sub: #6b6677;
+  --hc-text-muted: #9aa0a6;
+  --hc-border: #f3e3ea;
+  --hc-radius: 16px;
+  --hc-shadow: 0 4px 18px rgba(229, 93, 140, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei',
+    'Helvetica Neue', Arial, sans-serif;
+  color: var(--hc-text-main);
+  background: var(--hc-bg);
+  overflow-x: hidden;
+}
+
+/* 防御长串文本（长英文/URL 备注）导致横向溢出 */
+p,
+span,
+div,
+textarea {
+  overflow-wrap: break-word;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* 通用卡片 */
+.hc-card {
+  background: var(--hc-card);
+  border-radius: var(--hc-radius);
+  box-shadow: var(--hc-shadow);
+  padding: 16px;
+}
+
+.hc-page {
+  padding: 16px;
+  padding-top: calc(env(safe-area-inset-top) + 16px);
+}
+
+.hc-page-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 8px 0 16px;
+}
+
+.hc-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: #fdeef3;
+  color: var(--hc-primary);
+}
