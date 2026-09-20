@@ -17,6 +17,6 @@ services:
         value: "false"
       # 部署前端拿到实际 Vercel 域名后，回填到这里（多个用英文逗号分隔）
       - key: ALLOWED_ORIGINS
-        value: "https://hercycle.vercel.app"
+        value: "https://ai-female-cycle-health.vercel.app"
       - key: DEEPSEEK_API_KEY
         sync: false
