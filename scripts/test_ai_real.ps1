@@ -1,4 +1,4 @@
-# 她周期 — DeepSeek 真实 Key 一键实测
+﻿# 她周期 — DeepSeek 真实 Key 一键实测
 #
 # 前提：backend\.env 已配置 DEEPSEEK_API_KEY（脚本绝不打印 Key 内容）
 # 用法：powershell -ExecutionPolicy Bypass -File scripts\test_ai_real.ps1
@@ -164,6 +164,9 @@ try {
         }
     }
     foreach ($f in $scanFiles) { if (Test-Path $f) { $files += Get-Item $f } }
+    # backend\.env 是 Key 唯一合法存放地（已被 gitignore，不进 Git），
+    # 其安全性由下方"Git 未跟踪"检查保证，此处扫描合法存放地以外的所有文件
+    $files = @($files | Where-Object { $_.Name -ne ".env" })
     $leaks = @()
     foreach ($f in $files) {
         $hit = Select-String -Path $f.FullName -Pattern "sk-[A-Za-z0-9]{16,}" -ErrorAction SilentlyContinue
